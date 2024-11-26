@@ -142,3 +142,47 @@ To github.com:mlger/gittutor.git
 - `git push` 用于将本地仓库的提交（commit）推送到远程仓库。通过推送操作，其他团队成员可以看到你在本地做的更改，并将其合并到他们自己的工作中。
   - **推送前需要先提交：** 在推送代码之前，你必须确保所有更改已经通过 `git commit` 提交到本地版本库。如果没有提交，推送操作会失败。
 - `git pull` 用于从远程仓库拉取更新, 并将更新合并到本地当前分支. 可能会产生冲突. 我们可以拉取任意远端分支(只要有权限的话).
+
+# 6. branch
+
+前文我们只是在单分支上进行操作. 从这里开始, 我们将接触多分支.
+
+查看本地分支 / 所有分支:
+
+```bash
+$ git branch
+$ git branch -a
+```
+
+可以看到本地和远端分别只有一个分支.
+
+切换分支的指令是:
+
+```bash
+git checkout <BranchName>
+```
+
+同时这个指令也可以用来从当前提交节点新建分支.
+
+新建本地分支 `A`:
+
+```bash
+$ git checkout -b A
+切换到一个新分支 'A'
+```
+
+再次查看分支:
+
+```bash
+$ git branch
+* A
+  master
+(END)
+
+```
+
+可以看到我们本地已经切换到 A 分支了.(此时本地 master, 云端master, 本地 A 分支都在同一个提交节点上)
+
+![image-20241126163332157](https://raw.githubusercontent.com/mlger/Pict/main/new_path_tblg_arch/image-20241126163332157.png)
+
+我们对 A 分支进行一些变更.
